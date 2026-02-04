@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/lavadero/',
+  base: '/Projects-Lavadero/',
   build: {
     outDir: 'dist'
   }
