@@ -6,31 +6,31 @@
 const GALLERY_ITEMS = [
   {
     id: 1,
-    title: 'BMW Serie 3',
+    title: 'Sedán',
     service: 'Lavado Premium',
-    beforeImage: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&h=400&fit=crop&q=80',
+    beforeImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrOr74424bc5zufKEtKxYiW-CJfyYMU2lKyw&s',
+    afterImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Q4pWgtw0dF38alkECyjAVbFFmS1bFe7Mgw&s',
   },
   {
     id: 2,
-    title: 'Ford Mustang',
+    title: 'BMW Serie 3',
     service: 'Pulido Profesional',
-    beforeImage: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&h=400&fit=crop&q=80',
+    beforeImage: 'https://i.blogs.es/015bb4/p90462492_highres_the-new-bmw-3-series/840_560.jpeg',
+    afterImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8vHHGqKQxE-kFQ8-Kjev1_XzhFBd6M789Wg&s',
   },
   {
     id: 3,
-    title: 'Porsche 911',
+    title: 'Toyota 4Runner',
     service: 'Lavado Completo',
-    beforeImage: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop&q=80',
+    beforeImage: 'https://www.thedrive.com/wp-content/uploads/images-by-url-td/content/2019/12/stuck-hero.jpg?quality=85',
+    afterImage: 'https://www.usnews.com/object/image/00000196-87fe-d0ce-abdf-efff5fb10000/usnpx-25toyota4runner-jmv-0701.jpg?update-time=1746038316528&size=responsiveGallery&format=webp',
   },
   {
     id: 4,
-    title: 'Mercedes-Benz',
+    title: 'SUV Clásica',
     service: 'Lavado Premium',
-    beforeImage: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=600&h=400&fit=crop&q=80',
+    beforeImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPPKcLBVNp-_3RKuYL9VxuAtZxA3yWYh_MQ&s',
+    afterImage: 'https://japanesenostalgiccar.com/wordpress/wp-content/uploads/2020/11/Motorweek-Isuzu-Rodeo.jpg',
   }
 ];
 

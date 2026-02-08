@@ -17,6 +17,7 @@ import { createTestimonials, initTestimonials } from './js/components/testimonia
 import { createLocation, initLocation } from './js/components/location.js';
 import { createPromos, initPromos } from './js/components/promos.js';
 import { createFooter, initFooter } from './js/components/footer.js';
+import { createFloating, initFloating } from './js/components/floating.js';
 
 // Initialize App
 function initApp() {
@@ -37,6 +38,7 @@ function initApp() {
       ${createPromos()}
     </main>
     ${createFooter()}
+    ${createFloating()}
   `;
 
   // Initialize component functionality
@@ -49,11 +51,23 @@ function initApp() {
   initLocation();
   initPromos();
   initFooter();
+  initFloating();
 
   // Add loaded class for initial animations
   requestAnimationFrame(() => {
     document.body.classList.add('is-loaded');
   });
+
+  // Hide preloader
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('preloader--hidden');
+      setTimeout(() => {
+        preloader.remove();
+      }, 600);
+    }, 800);
+  }
 }
 
 // Run when DOM is ready

@@ -124,6 +124,17 @@ function createServiceCard(service, index) {
             <p class="services__card-tagline">${service.tagline}</p>
           </div>
 
+          <div class="services__card-price">
+            <div class="services__card-price-value">
+              <span class="services__card-currency">$</span>
+              <span class="services__card-amount">${formatPrice(price)}</span>
+            </div>
+            <span class="services__card-vehicle">
+              ${selectedVehicle.icon}
+              ${selectedVehicle.name}
+            </span>
+          </div>
+
           <ul class="services__card-features">
             ${featuresHTML}
           </ul>

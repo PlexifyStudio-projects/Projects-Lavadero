@@ -385,8 +385,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: $spacing-md;
-  padding-bottom: $spacing-md;
-  border-bottom: 1px solid rgba($color-white, 0.08);
+  padding: $spacing-sm $spacing-md;
+  background: rgba($color-white, 0.03);
+  border: 1px solid rgba($color-white, 0.06);
+  border-radius: $radius-lg;
 }
 
 .services__card-price-value {

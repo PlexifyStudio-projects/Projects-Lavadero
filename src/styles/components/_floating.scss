@@ -1,0 +1,152 @@
+// ============================================
+// FLOATING BUTTONS - WhatsApp + Scroll to Top
+// ============================================
+
+@use '../variables' as *;
+
+.floating {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  z-index: $z-index-fixed + 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-sm) {
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+  }
+}
+
+// WhatsApp Button
+.floating__whatsapp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, $color-whatsapp 0%, darken($color-whatsapp, 8%) 100%);
+  border-radius: 50%;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 6px 20px rgba($color-whatsapp, 0.4),
+    0 0 0 0 rgba($color-whatsapp, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  animation: whatsappBounce 3s ease-in-out infinite;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: $color-white;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba($color-whatsapp, 0.5);
+    animation: none;
+    width: auto;
+    border-radius: $radius-full;
+    padding: 0 $spacing-lg;
+    gap: $spacing-sm;
+
+    .floating__whatsapp-label {
+      max-width: 200px;
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 54px;
+    height: 54px;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+
+.floating__whatsapp-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba($color-whatsapp, 0.4);
+  animation: whatsappPulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.floating__whatsapp-label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  transition: all 0.3s ease;
+  margin-left: -$spacing-sm;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes whatsappBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+// Scroll to Top
+.floating__scroll-top {
+  width: 44px;
+  height: 44px;
+  background: rgba($color-white, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($color-white, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $color-white;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: rgba($color-primary, 0.2);
+    border-color: rgba($color-primary, 0.4);
+    transform: translateY(-3px);
+  }
+}
