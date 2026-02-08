@@ -1,11 +1,10 @@
-(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))a(o);new MutationObserver(o=>{for(const r of o)if(r.type==="childList")for(const t of r.addedNodes)t.tagName==="LINK"&&t.rel==="modulepreload"&&a(t)}).observe(document,{childList:!0,subtree:!0});function i(o){const r={};return o.integrity&&(r.integrity=o.integrity),o.referrerPolicy&&(r.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?r.credentials="include":o.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function a(o){if(o.ep)return;o.ep=!0;const r=i(o);fetch(o.href,r)}})();function C(){return`
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))a(o);new MutationObserver(o=>{for(const t of o)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&a(c)}).observe(document,{childList:!0,subtree:!0});function i(o){const t={};return o.integrity&&(t.integrity=o.integrity),o.referrerPolicy&&(t.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?t.credentials="include":o.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(o){if(o.ep)return;o.ep=!0;const t=i(o);fetch(o.href,t)}})();function C(){return`
     <header class="header" id="header">
       <div class="header__container">
 
         <!-- Logo -->
         <a href="#inicio" class="header__logo">
           <div class="header__logo-icon">
-            <!-- Icono de gota de agua con brillo -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="currentColor" stroke="none"/>
               <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
@@ -18,27 +17,33 @@
           </div>
         </a>
 
-        <!-- Navigation -->
-        <nav class="header__nav">
-          <a href="#inicio">
+        <!-- Navigation Desktop -->
+        <nav class="header__nav" id="headerNav">
+          <a href="#inicio" data-section="inicio">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
             </svg>
             Inicio
           </a>
-          <a href="#servicios">
+          <a href="#servicios" data-section="servicios">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
               <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
             </svg>
             Servicios
           </a>
-          <a href="#ubicacion">
+          <a href="#galeria" data-section="galeria">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>
+            Galería
+          </a>
+          <a href="#ubicacion" data-section="ubicacion">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
             Ubicación
           </a>
-          <a href="#promociones">
+          <a href="#promociones" data-section="promociones">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
               <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/>
             </svg>
@@ -55,19 +60,57 @@
         </a>
 
         <!-- Mobile Menu Button -->
-        <button class="header__mobile-btn" id="mobileMenuBtn" aria-label="Menu">
+        <button class="header__mobile-btn" id="mobileMenuBtn" aria-label="Abrir menú">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
       </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="header__mobile-menu" id="mobileMenu">
+        <div class="header__mobile-menu-inner">
+          <nav class="header__mobile-nav">
+            <a href="#inicio" class="header__mobile-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Inicio</span>
+            </a>
+            <a href="#servicios" class="header__mobile-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              <span>Servicios</span>
+            </a>
+            <a href="#galeria" class="header__mobile-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <span>Galería</span>
+            </a>
+            <a href="#ubicacion" class="header__mobile-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Ubicación</span>
+            </a>
+            <a href="#promociones" class="header__mobile-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+              <span>Promociones</span>
+            </a>
+          </nav>
+          <a href="https://wa.me/56912345678?text=Hola!%20Quiero%20reservar%20un%20lavado" class="header__mobile-cta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>Reservar por WhatsApp</span>
+          </a>
+          <div class="header__mobile-info">
+            <p>Pirámide 824, San Miguel, Santiago</p>
+            <p>+56 9 1234 5678</p>
+          </div>
+        </div>
+      </div>
     </header>
-  `}function z(){const e=document.getElementById("header");e&&(window.addEventListener("scroll",()=>{window.scrollY>50?e.classList.add("scrolled"):e.classList.remove("scrolled")}),document.querySelectorAll(".header__nav a, .header__logo").forEach(s=>{s.addEventListener("click",i=>{i.preventDefault();const a=s.getAttribute("href"),o=document.querySelector(a);o&&o.scrollIntoView({behavior:"smooth"})})}))}const w="/Projects-Lavadero/",m=`${w}hero-bg.png`,x="https://videos.pexels.com/video-files/4488209/4488209-hd_1920_1080_25fps.mp4";function M(e=30){let s="";for(let i=0;i<e;i++){const a=Math.random()*6+3,o=Math.random()*100,r=Math.random()*8,t=Math.random()*4+6;s+=`<div class="hero__particle" style="
+  `}function w(){const e=document.getElementById("header"),s=document.getElementById("mobileMenuBtn"),i=document.getElementById("mobileMenu");if(!e)return;let a=0;window.addEventListener("scroll",()=>{const r=window.scrollY;r>50?e.classList.add("scrolled"):e.classList.remove("scrolled"),r>300?r>a+5?e.classList.add("header--hidden"):r<a-5&&e.classList.remove("header--hidden"):e.classList.remove("header--hidden"),a=r}),s&&i&&(s.addEventListener("click",()=>{const r=e.classList.toggle("menu-open");s.setAttribute("aria-label",r?"Cerrar menú":"Abrir menú"),document.body.style.overflow=r?"hidden":""}),i.querySelectorAll("a").forEach(r=>{r.addEventListener("click",l=>{const d=r.getAttribute("href");if(d&&d.startsWith("#")){l.preventDefault(),e.classList.remove("menu-open"),document.body.style.overflow="",s.setAttribute("aria-label","Abrir menú");const v=document.querySelector(d);v&&setTimeout(()=>{v.scrollIntoView({behavior:"smooth"})},300)}})}),document.addEventListener("keydown",r=>{r.key==="Escape"&&e.classList.contains("menu-open")&&(e.classList.remove("menu-open"),document.body.style.overflow="",s.setAttribute("aria-label","Abrir menú"))})),document.querySelectorAll(".header__nav a, .header__logo").forEach(r=>{r.addEventListener("click",l=>{l.preventDefault();const d=r.getAttribute("href"),v=document.querySelector(d);v&&v.scrollIntoView({behavior:"smooth"})})});const o=document.querySelectorAll("section[id]"),t=document.querySelectorAll(".header__nav a"),c={rootMargin:"-20% 0px -60% 0px",threshold:0},n=new IntersectionObserver(r=>{r.forEach(l=>{if(l.isIntersecting){const d=l.target.id;t.forEach(v=>{v.classList.toggle("active",v.getAttribute("data-section")===d)})}})},c);o.forEach(r=>n.observe(r))}const z="/Projects-Lavadero/",m=`${z}hero-bg.png`,M="https://videos.pexels.com/video-files/4488209/4488209-hd_1920_1080_25fps.mp4";function x(e=30){let s="";for(let i=0;i<e;i++){const a=Math.random()*6+3,o=Math.random()*100,t=Math.random()*8,c=Math.random()*4+6;s+=`<div class="hero__particle" style="
       --size: ${a}px;
       --left: ${o}%;
-      --delay: ${r}s;
-      --duration: ${t}s;
+      --delay: ${t}s;
+      --duration: ${c}s;
     "></div>`}return s}function S(){return`
     <section id="inicio" class="hero">
       <!-- Background Layer with Video -->
@@ -80,7 +123,7 @@
           playsinline
           poster="${m}"
         >
-          <source src="${x}" type="video/mp4" />
+          <source src="${M}" type="video/mp4" />
         </video>
         <img src="${m}" alt="Lavado de autos profesional" class="hero__background-image hero__background-image--fallback" />
         <div class="hero__background-overlay"></div>
@@ -88,7 +131,7 @@
 
       <!-- Subtle Particles -->
       <div class="hero__particles">
-        ${M(25)}
+        ${x(25)}
       </div>
 
       <!-- Ambient Glow Effects -->
@@ -185,7 +228,7 @@
         <div class="hero__scroll-line"></div>
       </div>
     </section>
-  `}function B(){const e=document.querySelector(".hero__background-video"),s=document.querySelector(".hero__background-image--fallback");if(e&&(e.addEventListener("error",()=>{e.style.display="none",s&&(s.style.opacity="0.7")}),new IntersectionObserver(o=>{o.forEach(r=>{r.isIntersecting?e.play().catch(()=>{}):e.pause()})},{threshold:.1}).observe(e),window.matchMedia("(prefers-reduced-motion: reduce)").matches&&(e.pause(),e.style.display="none",s&&(s.style.opacity="0.7"))),document.querySelectorAll(".hero__btn--primary").forEach(a=>{a.addEventListener("click",o=>{o.preventDefault();const r=a.getAttribute("href"),t=document.querySelector(r);t&&t.scrollIntoView({behavior:"smooth"})})}),!window.matchMedia("(prefers-reduced-motion: reduce)").matches){let a=!1;window.addEventListener("scroll",()=>{a||(window.requestAnimationFrame(()=>{const o=window.pageYOffset,r=document.querySelector(".hero");if(r&&o<window.innerHeight){const t=r.querySelector(".hero__content"),l=r.querySelector(".hero__side-info");t&&(t.style.transform=`translateY(${o*.3}px)`,t.style.opacity=1-o/600),l&&(l.style.transform=`translateY(${o*.15}px)`,l.style.opacity=1-o/500)}a=!1}),a=!0)})}setTimeout(()=>{document.querySelector(".hero")?.classList.add("is-loaded")},100)}const E=[{id:1,value:5e3,suffix:"+",label:"Vehículos Lavados",icon:`<svg viewBox="0 0 24 24" fill="currentColor">
+  `}function B(){const e=document.querySelector(".hero__background-video"),s=document.querySelector(".hero__background-image--fallback");if(e&&(e.addEventListener("error",()=>{e.style.display="none",s&&(s.style.opacity="0.7")}),new IntersectionObserver(o=>{o.forEach(t=>{t.isIntersecting?e.play().catch(()=>{}):e.pause()})},{threshold:.1}).observe(e),window.matchMedia("(prefers-reduced-motion: reduce)").matches&&(e.pause(),e.style.display="none",s&&(s.style.opacity="0.7"))),document.querySelectorAll(".hero__btn--primary").forEach(a=>{a.addEventListener("click",o=>{o.preventDefault();const t=a.getAttribute("href"),c=document.querySelector(t);c&&c.scrollIntoView({behavior:"smooth"})})}),!window.matchMedia("(prefers-reduced-motion: reduce)").matches){let a=!1;window.addEventListener("scroll",()=>{a||(window.requestAnimationFrame(()=>{const o=window.pageYOffset,t=document.querySelector(".hero");if(t&&o<window.innerHeight){const c=t.querySelector(".hero__content"),n=t.querySelector(".hero__side-info");c&&(c.style.transform=`translateY(${o*.3}px)`,c.style.opacity=1-o/600),n&&(n.style.transform=`translateY(${o*.15}px)`,n.style.opacity=1-o/500)}a=!1}),a=!0)})}setTimeout(()=>{document.querySelector(".hero")?.classList.add("is-loaded")},100)}const E=[{id:1,value:5e3,suffix:"+",label:"Vehículos Lavados",icon:`<svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
     </svg>`,color:"water"},{id:2,value:5,suffix:" años",label:"De Experiencia",icon:`<svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
@@ -205,7 +248,7 @@
       <span class="stats__label">${e.label}</span>
       <div class="stats__glow"></div>
     </div>
-  `}function $(){return`
+  `}function A(){return`
     <section class="stats">
       <div class="stats__container">
         <div class="stats__grid">
@@ -220,20 +263,20 @@
         <div class="stats__line stats__line--3"></div>
       </div>
     </section>
-  `}function H(){const e=document.querySelectorAll(".stats__card");document.querySelectorAll(".stats__value");const s=new IntersectionObserver(i=>{i.forEach(a=>{if(a.isIntersecting){const o=a.target,r=o.querySelector(".stats__value");r&&!r.classList.contains("counted")&&(r.classList.add("counted"),A(r),o.classList.add("is-visible"))}})},{threshold:.5});e.forEach(i=>s.observe(i))}function A(e){const s=parseFloat(e.dataset.target),i=e.dataset.decimal==="true",a=2e3,o=1e3/60,r=Math.round(a/o);let t=0;const l=setInterval(()=>{t++;const n=I(t/r),c=s*n;i?e.textContent=c.toFixed(1):e.textContent=h(Math.floor(c)),t===r&&(clearInterval(l),i?e.textContent=s.toFixed(1):e.textContent=h(s))},o)}function I(e){return 1-Math.pow(1-e,4)}function h(e){return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}const q="/Projects-Lavadero/",_=[{id:"moto",name:"Moto",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.44 9.03L15.41 5H11v2h3.59l2 2H5c-2.8 0-5 2.2-5 5s2.2 5 5 5c2.46 0 4.45-1.69 4.9-4h1.65l2.77-2.77c-.21.54-.32 1.14-.32 1.77 0 2.8 2.2 5 5 5s5-2.2 5-5c0-2.65-1.97-4.77-4.56-4.97zM7.82 15C7.4 16.15 6.28 17 5 17c-1.63 0-3-1.37-3-3s1.37-3 3-3c1.28 0 2.4.85 2.82 2H5v2h2.82zM19 17c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>'},{id:"auto",name:"Auto",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>'},{id:"camioneta",name:"Camioneta",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>'}],u=[{id:"basico",name:"Lavado Básico",tagline:"Rápido y efectivo",basePrice:15e3,duration:"20 min",color:"#00d4ff",gradient:"linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)",features:["Lavado exterior completo","Enjuague a presión","Secado con microfibra","Limpieza de vidrios"]},{id:"completo",name:"Lavado Completo",tagline:"El más pedido",basePrice:18e3,duration:"45 min",color:"#e31c25",gradient:"linear-gradient(135deg, #e31c25 0%, #b71c1c 100%)",popular:!0,features:["Todo del básico","Aspirado interior","Limpieza de tablero","Limpieza de tapices","Ambientador premium"]},{id:"premium",name:"Lavado Premium",tagline:"Tratamiento VIP",basePrice:3e4,duration:"90 min",color:"#ffd700",gradient:"linear-gradient(135deg, #ffd700 0%, #ffaa00 100%)",features:["Todo del completo","Encerado protector","Acondicionador de cueros","Protección de llantas","Tratamiento anti-lluvia"]},{id:"detallado",name:"Pulido Profesional",tagline:"Restauración total",basePrice:4e4,duration:"3+ hrs",color:"#8b5cf6",gradient:"linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)",features:["Pulido de carrocería","Corrección de pintura","Restauración de faros","Limpieza de motor","Sellador cerámico"]}];let d=_[1];function V(e){const s=d.id==="camioneta"||d.id==="auto"?"jpeg":"png";return`${q}${d.id}-${e}.${s}`}function g(){return _.map(e=>`
+  `}function H(){const e=document.querySelectorAll(".stats__card");document.querySelectorAll(".stats__value");const s=new IntersectionObserver(i=>{i.forEach(a=>{if(a.isIntersecting){const o=a.target,t=o.querySelector(".stats__value");t&&!t.classList.contains("counted")&&(t.classList.add("counted"),$(t),o.classList.add("is-visible"))}})},{threshold:.5});e.forEach(i=>s.observe(i))}function $(e){const s=parseFloat(e.dataset.target),i=e.dataset.decimal==="true",a=2e3,o=1e3/60,t=Math.round(a/o);let c=0;const n=setInterval(()=>{c++;const r=I(c/t),l=s*r;i?e.textContent=l.toFixed(1):e.textContent=h(Math.floor(l)),c===t&&(clearInterval(n),i?e.textContent=s.toFixed(1):e.textContent=h(s))},o)}function I(e){return 1-Math.pow(1-e,4)}function h(e){return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}const V="/Projects-Lavadero/",_=[{id:"moto",name:"Moto",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.44 9.03L15.41 5H11v2h3.59l2 2H5c-2.8 0-5 2.2-5 5s2.2 5 5 5c2.46 0 4.45-1.69 4.9-4h1.65l2.77-2.77c-.21.54-.32 1.14-.32 1.77 0 2.8 2.2 5 5 5s5-2.2 5-5c0-2.65-1.97-4.77-4.56-4.97zM7.82 15C7.4 16.15 6.28 17 5 17c-1.63 0-3-1.37-3-3s1.37-3 3-3c1.28 0 2.4.85 2.82 2H5v2h2.82zM19 17c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>'},{id:"auto",name:"Auto",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>'},{id:"camioneta",name:"Camioneta",icon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>'}],u=[{id:"basico",name:"Lavado Básico",tagline:"Rápido y efectivo",basePrice:15e3,duration:"20 min",color:"#00d4ff",gradient:"linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%)",features:["Lavado exterior completo","Enjuague a presión","Secado con microfibra","Limpieza de vidrios"]},{id:"completo",name:"Lavado Completo",tagline:"El más pedido",basePrice:18e3,duration:"45 min",color:"#e31c25",gradient:"linear-gradient(135deg, #e31c25 0%, #b71c1c 100%)",popular:!0,features:["Todo del básico","Aspirado interior","Limpieza de tablero","Limpieza de tapices","Ambientador premium"]},{id:"premium",name:"Lavado Premium",tagline:"Tratamiento VIP",basePrice:3e4,duration:"90 min",color:"#ffd700",gradient:"linear-gradient(135deg, #ffd700 0%, #ffaa00 100%)",features:["Todo del completo","Encerado protector","Acondicionador de cueros","Protección de llantas","Tratamiento anti-lluvia"]},{id:"detallado",name:"Pulido Profesional",tagline:"Restauración total",basePrice:4e4,duration:"3+ hrs",color:"#8b5cf6",gradient:"linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)",features:["Pulido de carrocería","Corrección de pintura","Restauración de faros","Limpieza de motor","Sellador cerámico"]}];let p=_[1];function q(e){const s=p.id==="camioneta"||p.id==="auto"?"jpeg":"png";return`${V}${p.id}-${e}.${s}`}function P(e){return e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}function g(){return _.map(e=>`
     <button
-      class="services__vehicle-btn ${d.id===e.id?"services__vehicle-btn--active":""}"
+      class="services__vehicle-btn ${p.id===e.id?"services__vehicle-btn--active":""}"
       data-vehicle="${e.id}"
       aria-label="Seleccionar ${e.name}"
     >
       <span class="services__vehicle-icon">${e.icon}</span>
       <span class="services__vehicle-name">${e.name}</span>
-      ${d.id===e.id?'<span class="services__vehicle-glow"></span>':""}
+      ${p.id===e.id?'<span class="services__vehicle-glow"></span>':""}
     </button>
-  `).join("")}function f(e,s){e.basePrice;const i=V(e.id),a=`Hola! Quiero reservar un *${e.name}* para mi *${d.name}*`,o=`https://wa.me/56912345678?text=${encodeURIComponent(a)}`,r=e.features.map(t=>`
+  `).join("")}function f(e,s){const i=e.basePrice,a=q(e.id),o=`Hola! Quiero reservar un *${e.name}* para mi *${p.name}*`,t=`https://wa.me/56912345678?text=${encodeURIComponent(o)}`,c=e.features.map(n=>`
     <li>
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      <span>${t}</span>
+      <span>${n}</span>
     </li>
   `).join("");return`
     <div class="services__card ${e.popular?"services__card--popular":""}"
@@ -250,7 +293,7 @@
       <div class="services__card-inner">
         <!-- Image Section -->
         <div class="services__card-image">
-          <img src="${i}" alt="${e.name} - ${d.name}" loading="lazy" />
+          <img src="${a}" alt="${e.name} - ${p.name}" loading="lazy" />
           <div class="services__card-overlay"></div>
           <div class="services__card-duration">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/></svg>
@@ -266,11 +309,22 @@
             <p class="services__card-tagline">${e.tagline}</p>
           </div>
 
+          <div class="services__card-price">
+            <div class="services__card-price-value">
+              <span class="services__card-currency">$</span>
+              <span class="services__card-amount">${P(i)}</span>
+            </div>
+            <span class="services__card-vehicle">
+              ${p.icon}
+              ${p.name}
+            </span>
+          </div>
+
           <ul class="services__card-features">
-            ${r}
+            ${c}
           </ul>
 
-          <a href="${o}" class="services__card-btn" target="_blank" rel="noopener">
+          <a href="${t}" class="services__card-btn" target="_blank" rel="noopener">
             <span class="services__card-btn-bg"></span>
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -283,7 +337,7 @@
       <!-- 3D Glow Effect -->
       <div class="services__card-glow"></div>
     </div>
-  `}function P(){const e=document.querySelector(".services__grid"),s=document.querySelector(".services__vehicle-selector");e&&(e.innerHTML=u.map((i,a)=>f(i,a)).join(""),y()),s&&(s.innerHTML=g(),b())}function b(){document.querySelectorAll(".services__vehicle-btn").forEach(e=>{e.addEventListener("click",()=>{const s=e.dataset.vehicle;d=_.find(a=>a.id===s),document.querySelectorAll(".services__card").forEach((a,o)=>{a.style.opacity="0",a.style.transform="translateY(20px) scale(0.95)"}),setTimeout(()=>{P(),document.querySelectorAll(".services__card").forEach((o,r)=>{setTimeout(()=>{o.style.opacity="1",o.style.transform="translateY(0) scale(1)"},r*100)})},300)})})}function y(){document.querySelectorAll(".services__card").forEach(s=>{s.addEventListener("mousemove",i=>{const a=s.getBoundingClientRect(),o=i.clientX-a.left,r=i.clientY-a.top,t=a.width/2,l=a.height/2,n=(r-l)/20,c=(t-o)/20;s.style.transform=`perspective(1000px) rotateX(${n}deg) rotateY(${c}deg) scale(1.02)`;const v=s.querySelector(".services__card-glow");v&&(v.style.background=`radial-gradient(circle at ${o}px ${r}px, var(--card-color) 0%, transparent 60%)`,v.style.opacity="0.3")}),s.addEventListener("mouseleave",()=>{s.style.transform="perspective(1000px) rotateX(0) rotateY(0) scale(1)";const i=s.querySelector(".services__card-glow");i&&(i.style.opacity="0")})})}function T(){return`
+  `}function T(){const e=document.querySelector(".services__grid"),s=document.querySelector(".services__vehicle-selector");e&&(e.innerHTML=u.map((i,a)=>f(i,a)).join(""),y()),s&&(s.innerHTML=g(),b())}function b(){document.querySelectorAll(".services__vehicle-btn").forEach(e=>{e.addEventListener("click",()=>{const s=e.dataset.vehicle;p=_.find(a=>a.id===s),document.querySelectorAll(".services__card").forEach((a,o)=>{a.style.opacity="0",a.style.transform="translateY(20px) scale(0.95)"}),setTimeout(()=>{T(),document.querySelectorAll(".services__card").forEach((o,t)=>{setTimeout(()=>{o.style.opacity="1",o.style.transform="translateY(0) scale(1)"},t*100)})},300)})})}function y(){document.querySelectorAll(".services__card").forEach(s=>{s.addEventListener("mousemove",i=>{const a=s.getBoundingClientRect(),o=i.clientX-a.left,t=i.clientY-a.top,c=a.width/2,n=a.height/2,r=(t-n)/20,l=(c-o)/20;s.style.transform=`perspective(1000px) rotateX(${r}deg) rotateY(${l}deg) scale(1.02)`;const d=s.querySelector(".services__card-glow");d&&(d.style.background=`radial-gradient(circle at ${o}px ${t}px, var(--card-color) 0%, transparent 60%)`,d.style.opacity="0.3")}),s.addEventListener("mouseleave",()=>{s.style.transform="perspective(1000px) rotateX(0) rotateY(0) scale(1)";const i=s.querySelector(".services__card-glow");i&&(i.style.opacity="0")})})}function R(){return`
     <section id="servicios" class="services">
       <!-- Water Bubbles Background -->
       <div class="services__bubbles">
@@ -347,7 +401,7 @@
         </div>
       </div>
     </section>
-  `}function R(){b(),y();const e=document.querySelectorAll(".services__card"),s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.1});e.forEach(i=>s.observe(i))}const O=[{id:1,title:"BMW Serie 3",service:"Lavado Premium",beforeImage:"https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop&q=80",afterImage:"https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&h=400&fit=crop&q=80"},{id:2,title:"Ford Mustang",service:"Pulido Profesional",beforeImage:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop&q=80",afterImage:"https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&h=400&fit=crop&q=80"},{id:3,title:"Porsche 911",service:"Lavado Completo",beforeImage:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop&q=80",afterImage:"https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&h=400&fit=crop&q=80"},{id:4,title:"Mercedes-Benz",service:"Lavado Premium",beforeImage:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&h=400&fit=crop&q=80",afterImage:"https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=600&h=400&fit=crop&q=80"}];function D(e,s){return`
+  `}function O(){b(),y();const e=document.querySelectorAll(".services__card"),s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.1});e.forEach(i=>s.observe(i))}const F=[{id:1,title:"Sedán",service:"Lavado Premium",beforeImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrOr74424bc5zufKEtKxYiW-CJfyYMU2lKyw&s",afterImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Q4pWgtw0dF38alkECyjAVbFFmS1bFe7Mgw&s"},{id:2,title:"BMW Serie 3",service:"Pulido Profesional",beforeImage:"https://i.blogs.es/015bb4/p90462492_highres_the-new-bmw-3-series/840_560.jpeg",afterImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8vHHGqKQxE-kFQ8-Kjev1_XzhFBd6M789Wg&s"},{id:3,title:"Toyota 4Runner",service:"Lavado Completo",beforeImage:"https://www.thedrive.com/wp-content/uploads/images-by-url-td/content/2019/12/stuck-hero.jpg?quality=85",afterImage:"https://www.usnews.com/object/image/00000196-87fe-d0ce-abdf-efff5fb10000/usnpx-25toyota4runner-jmv-0701.jpg?update-time=1746038316528&size=responsiveGallery&format=webp"},{id:4,title:"SUV Clásica",service:"Lavado Premium",beforeImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjPPKcLBVNp-_3RKuYL9VxuAtZxA3yWYh_MQ&s",afterImage:"https://japanesenostalgiccar.com/wordpress/wp-content/uploads/2020/11/Motorweek-Isuzu-Rodeo.jpg"}];function D(e,s){return`
     <div class="gallery__item" data-index="${s}">
       <div class="gallery__comparison">
         <!-- Before Image -->
@@ -387,7 +441,7 @@
         <span class="gallery__service">${e.service}</span>
       </div>
     </div>
-  `}function F(){return`
+  `}function j(){return`
     <section id="galeria" class="gallery">
       <!-- Background Effects -->
       <div class="gallery__bg-effects">
@@ -414,7 +468,7 @@
 
         <!-- Gallery Grid -->
         <div class="gallery__grid">
-          ${O.map((e,s)=>D(e,s)).join("")}
+          ${F.map((e,s)=>D(e,s)).join("")}
         </div>
 
         <!-- CTA -->
@@ -436,15 +490,15 @@
         </div>
       </div>
     </section>
-  `}function j(){const e=document.querySelectorAll(".gallery__item");e.forEach(i=>{const a=i.querySelector(".gallery__comparison"),o=i.querySelector(".gallery__after"),r=i.querySelector(".gallery__slider"),t=i.querySelector(".gallery__hint");let l=!1;function n(c){const v=a.getBoundingClientRect();let p=(c-v.left)/v.width*100;p=Math.max(0,Math.min(100,p)),o.style.clipPath=`inset(0 ${100-p}% 0 0)`,r.style.left=`${p}%`,t&&(t.style.opacity="0")}a.addEventListener("mousedown",c=>{l=!0,a.classList.add("is-dragging"),n(c.clientX)}),document.addEventListener("mousemove",c=>{l&&n(c.clientX)}),document.addEventListener("mouseup",()=>{l=!1,a.classList.remove("is-dragging")}),a.addEventListener("touchstart",c=>{l=!0,a.classList.add("is-dragging"),n(c.touches[0].clientX)}),a.addEventListener("touchmove",c=>{l&&(c.preventDefault(),n(c.touches[0].clientX))}),a.addEventListener("touchend",()=>{l=!1,a.classList.remove("is-dragging")}),o.style.clipPath="inset(0 50% 0 0)",r.style.left="50%"});const s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.2});e.forEach(i=>s.observe(i))}const G=[{id:1,name:"Carlos Mendoza",vehicle:"BMW Serie 5",rating:5,text:"Increíble servicio, mi auto quedó como nuevo. El pulido profesional eliminó todos los rayones que tenía. 100% recomendado.",date:"Hace 2 semanas",verified:!0},{id:2,name:"María González",vehicle:"Toyota RAV4",rating:5,text:"Primera vez que vengo y quedé encantada. El equipo es muy profesional y los productos que usan son de primera calidad.",date:"Hace 1 mes",verified:!0},{id:3,name:"Roberto Silva",vehicle:"Harley Davidson",rating:5,text:"Llevé mi moto y el cuidado que tuvieron fue excepcional. Sabían exactamente cómo tratar cada parte. Volveré siempre.",date:"Hace 3 semanas",verified:!0},{id:4,name:"Andrea Paredes",vehicle:"Mercedes GLC",rating:5,text:"El mejor lavadero de Santiago sin duda. La atención al cliente es excelente y el resultado habla por sí solo.",date:"Hace 1 semana",verified:!0},{id:5,name:"Felipe Contreras",vehicle:"Ford Mustang",rating:5,text:"Llevo 2 años trayendo mi Mustang aquí. Nadie más lo toca. El tratamiento cerámico que me hicieron es espectacular.",date:"Hace 2 meses",verified:!0},{id:6,name:"Valentina Reyes",vehicle:"Audi Q5",rating:5,text:"Excelente relación precio-calidad. El lavado premium deja el auto impecable y el aroma dura días. Super recomendado!",date:"Hace 5 días",verified:!0}];function L(e){let s="";for(let i=0;i<5;i++)i<e?s+=`<svg class="testimonials__star testimonials__star--filled" viewBox="0 0 24 24" fill="currentColor">
+  `}function G(){const e=document.querySelectorAll(".gallery__item");e.forEach(i=>{const a=i.querySelector(".gallery__comparison"),o=i.querySelector(".gallery__after"),t=i.querySelector(".gallery__slider"),c=i.querySelector(".gallery__hint");let n=!1;function r(l){const d=a.getBoundingClientRect();let v=(l-d.left)/d.width*100;v=Math.max(0,Math.min(100,v)),o.style.clipPath=`inset(0 ${100-v}% 0 0)`,t.style.left=`${v}%`,c&&(c.style.opacity="0")}a.addEventListener("mousedown",l=>{n=!0,a.classList.add("is-dragging"),r(l.clientX)}),document.addEventListener("mousemove",l=>{n&&r(l.clientX)}),document.addEventListener("mouseup",()=>{n=!1,a.classList.remove("is-dragging")}),a.addEventListener("touchstart",l=>{n=!0,a.classList.add("is-dragging"),r(l.touches[0].clientX)}),a.addEventListener("touchmove",l=>{n&&(l.preventDefault(),r(l.touches[0].clientX))}),a.addEventListener("touchend",()=>{n=!1,a.classList.remove("is-dragging")}),o.style.clipPath="inset(0 50% 0 0)",t.style.left="50%"});const s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.2});e.forEach(i=>s.observe(i))}const Y=[{id:1,name:"Carlos Mendoza",vehicle:"BMW Serie 5",rating:5,text:"Increíble servicio, mi auto quedó como nuevo. El pulido profesional eliminó todos los rayones que tenía. 100% recomendado.",date:"Hace 2 semanas",verified:!0},{id:2,name:"María González",vehicle:"Toyota RAV4",rating:5,text:"Primera vez que vengo y quedé encantada. El equipo es muy profesional y los productos que usan son de primera calidad.",date:"Hace 1 mes",verified:!0},{id:3,name:"Roberto Silva",vehicle:"Harley Davidson",rating:5,text:"Llevé mi moto y el cuidado que tuvieron fue excepcional. Sabían exactamente cómo tratar cada parte. Volveré siempre.",date:"Hace 3 semanas",verified:!0},{id:4,name:"Andrea Paredes",vehicle:"Mercedes GLC",rating:5,text:"El mejor lavadero de Santiago sin duda. La atención al cliente es excelente y el resultado habla por sí solo.",date:"Hace 1 semana",verified:!0},{id:5,name:"Felipe Contreras",vehicle:"Ford Mustang",rating:5,text:"Llevo 2 años trayendo mi Mustang aquí. Nadie más lo toca. El tratamiento cerámico que me hicieron es espectacular.",date:"Hace 2 meses",verified:!0},{id:6,name:"Valentina Reyes",vehicle:"Audi Q5",rating:5,text:"Excelente relación precio-calidad. El lavado premium deja el auto impecable y el aroma dura días. Super recomendado!",date:"Hace 5 días",verified:!0}];function L(e){let s="";for(let i=0;i<5;i++)i<e?s+=`<svg class="testimonials__star testimonials__star--filled" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
       </svg>`:s+=`<svg class="testimonials__star" viewBox="0 0 24 24" fill="currentColor">
         <path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/>
-      </svg>`;return s}function Y(e){return e.split(" ").map(s=>s[0]).join("").toUpperCase()}function N(e,s){return`
+      </svg>`;return s}function N(e){return e.split(" ").map(s=>s[0]).join("").toUpperCase()}function Q(e,s){return`
     <div class="testimonials__card" style="--delay: ${s*.1}s">
       <div class="testimonials__card-header">
         <div class="testimonials__avatar">
-          <span>${Y(e.name)}</span>
+          <span>${N(e.name)}</span>
         </div>
         <div class="testimonials__user-info">
           <h4 class="testimonials__name">
@@ -476,7 +530,7 @@
         </span>
       </div>
     </div>
-  `}function Q(){return`
+  `}function W(){return`
     <section id="testimonios" class="testimonials">
       <!-- Floating Elements -->
       <div class="testimonials__floating">
@@ -537,7 +591,7 @@
 
         <!-- Cards Grid -->
         <div class="testimonials__grid">
-          ${G.map((e,s)=>N(e,s)).join("")}
+          ${Y.map((e,s)=>Q(e,s)).join("")}
         </div>
 
         <!-- CTA -->
@@ -552,7 +606,7 @@
         </div>
       </div>
     </section>
-  `}function U(){const e=document.querySelectorAll(".testimonials__card"),s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.1});e.forEach(i=>s.observe(i))}function W(){return`
+  `}function U(){const e=document.querySelectorAll(".testimonials__card"),s=new IntersectionObserver(i=>{i.forEach(a=>{a.isIntersecting&&a.target.classList.add("is-visible")})},{threshold:.1});e.forEach(i=>s.observe(i))}function K(){return`
     <section id="ubicacion" class="location">
       <div class="location__container">
         <!-- Header -->
@@ -753,7 +807,7 @@
         </div>
       </div>
     </section>
-  `}function X(){const e=new IntersectionObserver(s=>{s.forEach(i=>{i.isIntersecting&&i.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll(".location__info-card, .parking__feature").forEach(s=>{e.observe(s)})}function K(){return`
+  `}function X(){const e=new IntersectionObserver(s=>{s.forEach(i=>{i.isIntersecting&&i.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll(".location__info-card, .parking__feature").forEach(s=>{e.observe(s)})}function Z(){return`
     <section id="promociones" class="promos">
       <div class="promos__container">
         <!-- Header -->
@@ -872,7 +926,7 @@
         </div>
       </div>
     </section>
-  `}function Z(){const e=new IntersectionObserver(s=>{s.forEach((i,a)=>{i.isIntersecting&&setTimeout(()=>{i.target.classList.add("visible")},a*100)})},{threshold:.1});document.querySelectorAll(".promos__card").forEach(s=>{e.observe(s)})}function J(){return`
+  `}function J(){const e=new IntersectionObserver(s=>{s.forEach((i,a)=>{i.isIntersecting&&setTimeout(()=>{i.target.classList.add("visible")},a*100)})},{threshold:.1});document.querySelectorAll(".promos__card").forEach(s=>{e.observe(s)})}function e1(){return`
     <footer class="footer">
       <!-- Wave decoration -->
       <div class="footer__wave">
@@ -957,7 +1011,7 @@
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                <span>Av. Providencia 1234, Santiago</span>
+                <span>Pirámide 824, San Miguel, Santiago</span>
               </div>
               <div class="footer__contact-item">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -996,16 +1050,39 @@
 
       </div>
     </footer>
-  `}function e1(){document.querySelectorAll('.footer a[href^="#"]').forEach(e=>{e.addEventListener("click",s=>{s.preventDefault();const i=e.getAttribute("href"),a=document.querySelector(i);a&&a.scrollIntoView({behavior:"smooth"})})})}function s1(){const e=document.querySelector("#app");e&&(e.innerHTML=`
+  `}function s1(){document.querySelectorAll('.footer a[href^="#"]').forEach(e=>{e.addEventListener("click",s=>{s.preventDefault();const i=e.getAttribute("href"),a=document.querySelector(i);a&&a.scrollIntoView({behavior:"smooth"})})})}function a1(){return`
+    <div class="floating" id="floating">
+      <!-- WhatsApp Button -->
+      <a href="https://wa.me/56912345678?text=Hola!%20Quiero%20reservar%20un%20lavado"
+         class="floating__whatsapp"
+         target="_blank"
+         rel="noopener"
+         aria-label="Contactar por WhatsApp">
+        <div class="floating__whatsapp-pulse"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="floating__whatsapp-label">Chatea con nosotros</span>
+      </a>
+
+      <!-- Scroll to Top -->
+      <button class="floating__scroll-top" id="scrollTopBtn" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+      </button>
+    </div>
+  `}function i1(){const e=document.getElementById("scrollTopBtn");e&&(window.addEventListener("scroll",()=>{window.scrollY>600?e.classList.add("visible"):e.classList.remove("visible")}),e.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}))}function o1(){const e=document.querySelector("#app");if(!e)return;e.innerHTML=`
     ${C()}
     <main>
       ${S()}
-      ${$()}
-      ${T()}
-      ${F()}
-      ${Q()}
+      ${A()}
+      ${R()}
+      ${j()}
       ${W()}
       ${K()}
+      ${Z()}
     </main>
-    ${J()}
-  `,z(),B(),H(),R(),j(),U(),X(),Z(),e1(),requestAnimationFrame(()=>{document.body.classList.add("is-loaded")}))}document.addEventListener("DOMContentLoaded",s1);
+    ${e1()}
+    ${a1()}
+  `,w(),B(),H(),O(),G(),U(),X(),J(),s1(),i1(),requestAnimationFrame(()=>{document.body.classList.add("is-loaded")});const s=document.getElementById("preloader");s&&setTimeout(()=>{s.classList.add("preloader--hidden"),setTimeout(()=>{s.remove()},600)},800)}document.addEventListener("DOMContentLoaded",o1);
